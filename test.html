@@ -4,6 +4,15 @@
     <title>Test Page</title>
 </head>
 <body>
-    <h1>This is a Test Page</h1>
+    <h1 id="header">This is a Test Page</h1>
 </body>
+<script>
+    data = fetch("data.json")
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            document.getElementById("header").innerHTML = data[0].student + "'s data loaded!";
+        })
+        .catch(error => console.error("Error loading data:", error));
+</script>
 </html>
